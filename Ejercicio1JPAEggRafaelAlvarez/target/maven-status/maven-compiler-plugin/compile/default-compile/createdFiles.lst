@@ -1,0 +1,14 @@
+entidades\Autor.class
+servicios\AutorServicio.class
+entidades\Libro_.class
+com\mycompany\ejercicio1jpaeggrafaelalvarez\Ejercicio1JPAEggRafaelAlvarez.class
+persistencia\AutorPersistencia.class
+persistencia\LibroPersistencia.class
+entidades\Libro.class
+persistencia\EditorialPersistencia.class
+servicios\EditorialServicio.class
+servicios\LibroServicio.class
+entidades\Editorial.class
+persistencia\Persistencia.class
+entidades\Autor_.class
+entidades\Editorial_.class
