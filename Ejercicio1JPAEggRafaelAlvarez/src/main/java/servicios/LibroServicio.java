@@ -102,4 +102,31 @@ public class LibroServicio {
         }
     }
     
+    public void darAltaLibro(){
+        Scanner entrada = new Scanner(System.in).useDelimiter("\n");
+        char respuesta='t';
+        boolean alta = false;
+        do{
+            System.out.println("Desea dar de alta a un libro? s o n");
+        respuesta = entrada.next().charAt(0);
+        
+        
+        if(respuesta=='s'){
+            alta = true;
+        }else if(respuesta=='n'){
+            alta = false;
+            System.out.println("El libro que elija se dará de baja");
+        }else{
+            System.out.println("Respuesta incorrecta"); 
+        }
+        
+        }while(respuesta!='n' && respuesta!='s');
+        
+        System.out.println("Ingresar ISBN del libro");
+        Long isbn = entrada.nextLong();
+        
+        libroPersistencia.editarLibroAlta(alta, isbn);
+         
+    }
+    
 }

@@ -15,12 +15,28 @@ public class EditorialPersistencia extends Persistencia{
         em.getTransaction().begin();
         em.persist(editorial);
         em.getTransaction().commit();
+        em.clear();
+        //em.close();
+        System.out.println("Transacción realizada con éxito");
     }
     
     public Editorial devolverEditorial(Integer id){
         Editorial editorial = em.find(Editorial.class, id);
         
         return editorial;
+    
+    }
+    
+    public void editarEditorialAlta(boolean respuesta, Integer id){
+        Editorial editorial;
+        editorial = em.find(Editorial.class, id);
+        editorial.setAlta(respuesta);
+        em.getTransaction().begin();
+        em.merge(editorial);
+        em.getTransaction().commit();
+        em.clear();
+        //em.close();
+        System.out.println("Transacción realizada con éxito");
     
     }
     

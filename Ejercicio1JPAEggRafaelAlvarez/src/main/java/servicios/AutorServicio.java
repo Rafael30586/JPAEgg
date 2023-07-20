@@ -40,4 +40,32 @@ public class AutorServicio {
         }
     
     }
+    
+    public void darAltaAutor(){
+        Scanner entrada = new Scanner(System.in).useDelimiter("\n");
+        char respuesta='t';
+        boolean alta = false;
+        do{
+            System.out.println("Desea dar de alta a un autor? s o n");
+        respuesta = entrada.next().charAt(0);
+        
+        
+        if(respuesta=='s'){
+            alta = true;
+        }else if(respuesta=='n'){
+            alta = false;
+            System.out.println("El autor que elija se dará de baja");
+        }else{
+            System.out.println("Respuesta incorrecta"); 
+        }
+        
+        }while(respuesta!='n' && respuesta!='s');
+        
+        System.out.println("Ingresar ID del autor");
+        Integer id = entrada.nextInt();
+        
+        autorPersistencia.editarAltaAutor(alta, id);
+         
+    }
+    
 }

@@ -23,6 +23,11 @@ public class Ejercicio1JPAEggRafaelAlvarez {
       //ls.mostrarLibrosTitulo();
       //ls.mostrarLibrosEditorial();
       //ls.mostrarLibrosISBN();
+      
+      
+      //as.darAltaAutor();
+      //es.darAltaEditorial();
+      ls.darAltaLibro();
        
     }
 }

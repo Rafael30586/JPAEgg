@@ -19,6 +19,9 @@ public class AutorPersistencia extends Persistencia{
         em.getTransaction().begin();
         em.persist(autor);
         em.getTransaction().commit();
+        //em.close();
+        em.clear();
+        System.out.println("Transacción realizada con éxito");
     }
     
     public List<Autor> buscarAutorNombre(String nombre){
@@ -35,5 +38,16 @@ public class AutorPersistencia extends Persistencia{
         
         return autor;
     
+    }
+    
+    public void editarAltaAutor(boolean alta, Integer id){
+        Autor autor = em.find(Autor.class, id);
+        autor.setAlta(alta);
+        em.getTransaction().begin();
+        em.merge(autor);
+        em.getTransaction().commit();
+        em.clear();
+        //em.close();
+        System.out.println("Transacción realizada con éxito");
     }
 }

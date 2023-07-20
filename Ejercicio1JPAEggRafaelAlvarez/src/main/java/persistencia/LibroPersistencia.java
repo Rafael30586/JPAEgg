@@ -13,15 +13,15 @@ public class LibroPersistencia extends Persistencia{
         em.getTransaction().begin();
         em.persist(libro);
         em.getTransaction().commit();
+        em.clear();
+        //em.close();
+        System.out.println("Transacción realizada con éxito");
     }
     
     public List<Libro> buscarLibroISBN(Long isbn){
         
         List<Libro> libros = em.createQuery("Select l from Libro l where l.isbn = "+isbn)
                             .getResultList();
-                
-                
-        
         return libros;
     }
     
@@ -50,6 +50,18 @@ public class LibroPersistencia extends Persistencia{
                 .getResultList();
         
         return libros;
+    }
+    
+    public void editarLibroAlta(boolean respuesta,Long isbn){
+        Libro libro = em.find(Libro.class, isbn);
+        libro.setAlta(respuesta);
+        em.getTransaction().begin();
+        em.merge(libro);
+        em.getTransaction().commit();
+        em.clear();
+        //em.close();
+        System.out.println("Transacción realizada con éxito");
+    
     }
     
 }
